@@ -128,10 +128,15 @@ function Article() {
       );
     },
     img({ src, alt }) {
+      // If src does not start with 'http', '/', or 'content/', prepend 'content/'
+      const normalizedSrc =
+        /^(https?:)?\//.test(src) || src.startsWith("content/")
+          ? src
+          : `content/${src}`;
       return (
         <div className="flex flex-col items-center my-6">
           <img
-            src={`${BASE}content/${src}`}
+            src={`${BASE}${normalizedSrc}`}
             alt={alt}
             className="w-full max-w-xl aspect-video object-cover rounded shadow-md grayscale"
             loading="lazy"
