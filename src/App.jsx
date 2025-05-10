@@ -3,13 +3,15 @@ import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+const BASE = import.meta.env.BASE_URL;
+
 function Home() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch("/content/articles.json")
+    fetch("content/articles.json")
       .then((res) => {
         if (!res.ok) throw new Error("Not found");
         return res.json();
@@ -40,7 +42,7 @@ function Home() {
           >
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <img
-                src={article.image}
+                src={article.image.replace(/^\//, "")}
                 alt={article.title}
                 className="w-full md:w-48 h-32 object-cover rounded shadow-sm grayscale"
                 loading="lazy"
@@ -64,7 +66,7 @@ function Article() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    fetch("/content/articles.json")
+    fetch("content/articles.json")
       .then((res) => {
         if (!res.ok) throw new Error("Not found");
         return res.json();
@@ -75,7 +77,7 @@ function Article() {
           setNotFound(true);
           return;
         }
-        fetch(found.contentPath)
+        fetch(found.contentPath.replace(/^\//, ""))
           .then((res) => {
             if (!res.ok) throw new Error("Not found");
             return res.text();
@@ -90,7 +92,7 @@ function Article() {
     return (
       <div className="max-w-2xl mx-auto py-12 px-4 text-center">
         <h1 className="text-3xl font-serif mb-4">404 - Article Not Found</h1>
-        <Link to="/" className="text-blue-600 underline">
+        <Link to={BASE} className="text-blue-600 underline">
           Back to Home
         </Link>
       </div>
@@ -147,7 +149,7 @@ function Article() {
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4">
-      <Link to="/" className="text-blue-600 underline mb-8 inline-block">
+      <Link to={BASE} className="text-blue-600 underline mb-8 inline-block">
         ← Back to Home
       </Link>
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>

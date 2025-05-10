@@ -3,18 +3,18 @@
         {
             "title": "Mother's Day",
             "description": "Happy Mother's Day!",
-            "image": "/test-image.JPG",
+            "image": "test-image.JPG",
             "slug": "mothers-day-2025",
             "date": "2025-05-10",
-            "contentPath": "/content/mothers-day-2025.md"
+            "contentPath": "content/mothers-day-2025.md"
         },
         {
             "title": "Second Article",
             "description": "This is the second default article.",
-            "image": "/test-image.JPG",
+            "image": "test-image.JPG",
             "slug": "second-article",
             "date": "2024-03-22",
-            "contentPath": "/content/article-2.md"
+            "contentPath": "content/article-2.md"
         }
     ]
 }
