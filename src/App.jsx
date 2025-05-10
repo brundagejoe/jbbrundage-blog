@@ -11,7 +11,7 @@ function Home() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch("/content/articles.json")
+    fetch(`${BASE}/content/articles.json`)
       .then((res) => {
         if (!res.ok) throw new Error("Not found");
         return res.json();
@@ -66,7 +66,7 @@ function Article() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    fetch("/content/articles.json")
+    fetch(`${BASE}/content/articles.json`)
       .then((res) => {
         if (!res.ok) throw new Error("Not found");
         return res.json();
@@ -77,7 +77,7 @@ function Article() {
           setNotFound(true);
           return;
         }
-        fetch(`/${found.contentPath.replace(/^\//, "")}`)
+        fetch(`${BASE}/${found.contentPath.replace(/^\//, "")}`)
           .then((res) => {
             if (!res.ok) throw new Error("Not found");
             return res.text();
