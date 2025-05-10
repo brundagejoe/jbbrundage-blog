@@ -5,7 +5,7 @@ This is a very simple blog website that is hosted in github pages. Here are the 
 - Run nvm use 20 first
 - Use npm to install, not npx
 - Uses React
-- Uses Tailwind CSS
+- Uses Tailwind CSS v3 (this is important)
 - Uses Vite
 - There's two pages:
   - Home
