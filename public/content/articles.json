@@ -1,0 +1,20 @@
+{
+    "articles": [
+        {
+            "title": "First Article",
+            "description": "This is the first default article.",
+            "image": "/test-image.JPG",
+            "slug": "first-article",
+            "date": "2024-03-21",
+            "contentPath": "/content/article-1.md"
+        },
+        {
+            "title": "Second Article",
+            "description": "This is the second default article.",
+            "image": "/test-image.JPG",
+            "slug": "second-article",
+            "date": "2024-03-22",
+            "contentPath": "/content/article-2.md"
+        }
+    ]
+}
