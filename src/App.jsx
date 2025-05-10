@@ -129,10 +129,9 @@ function Article() {
     },
     img({ src, alt }) {
       // If src does not start with 'http', '/', or 'content/', prepend 'content/'
-      const normalizedSrc =
-        /^(https?:)?\//.test(src) || src.startsWith("content/")
-          ? src
-          : `content/${src}`;
+      const normalizedSrc = /^https?:\/\//.test(src)
+        ? src
+        : `content/${src.replace(/^content\//, "").replace(/^\//, "")}`;
       return (
         <div className="flex flex-col items-center my-6">
           <img
