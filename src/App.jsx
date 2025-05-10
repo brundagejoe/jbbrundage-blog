@@ -11,7 +11,7 @@ function Home() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch(`${BASE}content/articles.json`)
+    fetch("/content/articles.json")
       .then((res) => {
         if (!res.ok) throw new Error("Not found");
         return res.json();
@@ -42,7 +42,7 @@ function Home() {
           >
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <img
-                src={`${BASE}${article.image.replace(/^\//, "")}`}
+                src={`/${article.image.replace(/^\//, "")}`}
                 alt={article.title}
                 className="w-full md:w-48 h-32 object-cover rounded shadow-sm grayscale"
                 loading="lazy"
@@ -66,7 +66,7 @@ function Article() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    fetch(`${BASE}content/articles.json`)
+    fetch("/content/articles.json")
       .then((res) => {
         if (!res.ok) throw new Error("Not found");
         return res.json();
@@ -77,7 +77,7 @@ function Article() {
           setNotFound(true);
           return;
         }
-        fetch(`${BASE}${found.contentPath.replace(/^\//, "")}`)
+        fetch(`/${found.contentPath.replace(/^\//, "")}`)
           .then((res) => {
             if (!res.ok) throw new Error("Not found");
             return res.text();
@@ -92,7 +92,7 @@ function Article() {
     return (
       <div className="max-w-2xl mx-auto py-12 px-4 text-center">
         <h1 className="text-3xl font-serif mb-4">404 - Article Not Found</h1>
-        <Link to={BASE} className="text-blue-600 underline">
+        <Link to="/" className="text-blue-600 underline">
           Back to Home
         </Link>
       </div>
@@ -131,7 +131,7 @@ function Article() {
       return (
         <div className="flex flex-col items-center my-6">
           <img
-            src={`${BASE}${src.replace(/^\//, "")}`}
+            src={`/${src.replace(/^\//, "")}`}
             alt={alt}
             className="w-full max-w-xl aspect-video object-cover rounded shadow-md grayscale"
             loading="lazy"
@@ -149,7 +149,7 @@ function Article() {
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4">
-      <Link to={BASE} className="text-blue-600 underline mb-8 inline-block">
+      <Link to="/" className="text-blue-600 underline mb-8 inline-block">
         ← Back to Home
       </Link>
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
