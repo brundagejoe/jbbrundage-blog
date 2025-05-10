@@ -11,7 +11,7 @@ function Home() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch("content/articles.json")
+    fetch(`${BASE}content/articles.json`)
       .then((res) => {
         if (!res.ok) throw new Error("Not found");
         return res.json();
@@ -42,7 +42,7 @@ function Home() {
           >
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <img
-                src={article.image.replace(/^\//, "")}
+                src={`${BASE}${article.image.replace(/^\//, "")}`}
                 alt={article.title}
                 className="w-full md:w-48 h-32 object-cover rounded shadow-sm grayscale"
                 loading="lazy"
@@ -66,7 +66,7 @@ function Article() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    fetch("content/articles.json")
+    fetch(`${BASE}content/articles.json`)
       .then((res) => {
         if (!res.ok) throw new Error("Not found");
         return res.json();
@@ -77,7 +77,7 @@ function Article() {
           setNotFound(true);
           return;
         }
-        fetch(found.contentPath.replace(/^\//, ""))
+        fetch(`${BASE}${found.contentPath.replace(/^\//, "")}`)
           .then((res) => {
             if (!res.ok) throw new Error("Not found");
             return res.text();
@@ -131,7 +131,7 @@ function Article() {
       return (
         <div className="flex flex-col items-center my-6">
           <img
-            src={src}
+            src={`${BASE}${src.replace(/^\//, "")}`}
             alt={alt}
             className="w-full max-w-xl aspect-video object-cover rounded shadow-md grayscale"
             loading="lazy"
