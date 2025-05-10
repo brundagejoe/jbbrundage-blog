@@ -42,7 +42,7 @@ function Home() {
           >
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <img
-                src={`${BASE}${article.image.replace(/\//, "")}`}
+                src={`${BASE}${article.image.replace(/^\/+/, "")}`}
                 alt={article.title}
                 className="w-full md:w-48 h-32 object-cover rounded shadow-sm grayscale"
                 loading="lazy"
@@ -131,7 +131,7 @@ function Article() {
       return (
         <div className="flex flex-col items-center my-6">
           <img
-            src={`${BASE}${src.replace(/\//, "")}`}
+            src={`${BASE}${src.replace(/^\/+/, "")}`}
             alt={alt}
             className="w-full max-w-xl aspect-video object-cover rounded shadow-md grayscale"
             loading="lazy"
