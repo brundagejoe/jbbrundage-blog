@@ -122,7 +122,7 @@ function Article() {
         );
       }
       return (
-        <p className="mb-4 text-lg leading-relaxed font-sans">{children}</p>
+        <p className="mb-4 text-lg leading-relaxed font-serif">{children}</p>
       );
     },
     img({ src, alt }) {

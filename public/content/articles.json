@@ -1,12 +1,12 @@
 {
     "articles": [
         {
-            "title": "First Article",
-            "description": "This is the first default article.",
+            "title": "Mother's Day",
+            "description": "Happy Mother's Day!",
             "image": "/test-image.JPG",
-            "slug": "first-article",
-            "date": "2024-03-21",
-            "contentPath": "/content/article-1.md"
+            "slug": "mothers-day-2025",
+            "date": "2025-05-10",
+            "contentPath": "/content/mothers-day-2025.md"
         },
         {
             "title": "Second Article",
